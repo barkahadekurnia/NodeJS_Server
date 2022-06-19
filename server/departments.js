@@ -54,9 +54,9 @@ app.post('/api/departments/',(req,res)=>{
 })
 app.put('/api/departments/:department_id',(req,res)=>{
     const {department_id} = req.params
-    const {name} = req.body
+    const {department_name} = req.body
     pool.query("update departments set department_name = $1 where department_id= $2",
-    [name,department_id],
+    [department_name,department_id],
     (error,result) =>{
         if (error) {
             throw error;
